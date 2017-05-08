@@ -1,0 +1,61 @@
+<section ng-controller="StudentsController">
+  <div class="page-header">
+    <h1>New Student</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="studentForm" class="form-horizontal" ng-submit="create(studentForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="FirstName">FirstName</label>
+          <input name="FirstName" type="text" ng-model="FirstName" id="FirstName" class="form-control" placeholder="FirstName" required>
+          <div ng-messages="studentForm.FirstName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Student's FirstName is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label for="SecondName">SecondName</label>
+          <input name="SecondName" type="text" ng-model="SecondName" id="SecondName" class="form-control" placeholder="SecondName" required>
+          <div ng-messages="studentForm.SecondName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Student's SecondName is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label for="StudentID">Student ID</label>
+          <input name="StudentID" type="text" ng-model="StudentID" id="StudentID" class="form-control" placeholder="StudentID" required>
+          <div ng-messages="studentForm.StudentID.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Student's ID is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label for="StudentDOB">Date of Birth</label>
+          <input name="StudentDOB" type="date" ng-model="StudentDOB" id="StudentDOB" class="form-control" placeholder="StudentDOB" required>
+          <div ng-messages="studentForm.StudentDOB.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Student's Date of Birth is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label for="StudentBatch">Student Batch</label>
+          <input name="StudentBatch" type="text" ng-model="StudentBatch" id="StudentBatch" class="form-control" placeholder="StudentBatch" required>
+          <div ng-messages="studentForm.StudentBatch.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">SStudent's Batch is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+<section ng-controller="CoursesController" ng-init="findOne()">
+  <div class="page-header">
+    <h1>Edit Course</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="courseForm" class="form-horizontal" ng-submit="update(courseForm.$valid)" novalidate>
+      <fieldset>
+        <fieldset>
+        <div class="form-group" show-errors>
+          <label for="coursename">Course name</label>
+          <input name="coursename" type="text" ng-model="course.coursename" id="coursename" class="form-control" placeholder="coursename" required>
+          <div ng-messages="courseForm.coursename.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Course name is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+        <label for="departmentCourse">Department</label>
+          <select name="departmentCourse" ng-model="course.departmentCourse" id="departmentCourse" class="form-control" placeholder="departmentCourse" required>
+              <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+              <option value="EEE">EEE</option>
+              <option value="MECH">MECH</option>
+              <option value="CIVIL">CIVIL</option>
+            </select>
+            <div ng-messages="courseForm.departmentCourse.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Department is required.</p>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea name="content" ng-model="course.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Update" class="btn btn-default">
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

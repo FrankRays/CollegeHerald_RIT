@@ -1,0 +1,65 @@
+<section ng-controller="TeachersController">
+  <div class="page-header">
+    <h1>New Teacher</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="teacherForm" class="form-horizontal" ng-submit="create(teacherForm.$valid)" novalidate>
+      <fieldset>
+       
+        <div class="form-group" show-errors>
+          <label for="FirstName">FirstName</label>
+          <input name="FirstName" type="text" ng-model="FirstName" id="FirstName" class="form-control" placeholder="FirstName" required>
+          <div ng-messages="teacherForm.FirstName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">teacher's FirstName is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label for="LastName">LastName</label>
+          <input name="LastName" type="text" ng-model="LastName" id="LastName" class="form-control" placeholder="LastName" required>
+          <div ng-messages="teacherForm.LastName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">teacher's LastName is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+        <label for="Department">Department</label>
+          <select name="Department" ng-model="Department" id="Department" class="form-control" placeholder="Department" required>
+              <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+              <option value="EEE">EEE</option>
+              <option value="MECH">MECH</option>
+              <option value="CIVIL">CIVIL</option>
+            </select>
+            <div ng-messages="teacherForm.Department.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">teacher's Department is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+        <label for="Position">Position</label>
+          <select name="Position" ng-model="Position" id="Position" class="form-control" placeholder="Position" required>
+              <option value="HOD">HOD</option>
+              <option value="Ass.Professor">Ass.Professor</option>
+              <option value="lecturer">lecturer</option>
+              
+            </select>
+            <div ng-messages="teacherForm.Position.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">teacher's Position is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

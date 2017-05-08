@@ -1,0 +1,22 @@
+<section ng-controller="ExamsController" ng-init="findOne()">
+  <div class="page-header">
+    <h1 ng-bind="exam.ExamName"></h1>
+  </div>
+  <div class="pull-right" ng-show="authentication.user._id == exam.user._id">
+    <a class="btn btn-primary" ui-sref="exams.edit({examId: exam._id})">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="remove();">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="exam.created | date:'mediumDate'"></span>
+      by
+      <span ng-bind="exam.user.displayName"></span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="exam.ExamType"></p>
+</section>

@@ -1,0 +1,42 @@
+<section ng-controller="ExamsController">
+  <div class="page-header">
+    <h1>New Exam</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="examForm" class="form-horizontal" ng-submit="create(examForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="ExamName">Exam Name</label>
+          <input name="ExamName" type="text" ng-model="ExamName" id="ExamName" class="form-control" placeholder="ExamName" required>
+          <div ng-messages="teacherForm.ExamName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Exam Name is required.</p>
+          </div>
+        </div>
+       
+        <div class="form-group" show-errors>
+        <label for="ExamType">Exam Type</label>
+          <select name="ExamType" ng-model="ExamType" id="ExamType" class="form-control" placeholder="ExamType" required>
+              <option value="Internal">Internal</option>
+              <option value="Semestar">Semestar</option>
+              <option value="Preparatory">Preparatory</option>
+              
+            </select>
+            <div ng-messages="teacherForm.ExamType.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Exam Type is required.</p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
